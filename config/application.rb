@@ -20,3 +20,6 @@ module RailsApp
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+Rails.application.config.i18n.default_locale = :ja
+Faker::Config.locale = :ja

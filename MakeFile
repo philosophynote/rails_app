@@ -1,0 +1,19 @@
+.PHONY: install
+install:  ## ruby js install & create db
+	docker-compose run --rm web bundle install
+
+.PHONY: create-db
+create-db:  ## create db
+	docker-compose run --rm web bundle exec rails db:create
+
+.PHONY: run
+run:
+	docker-compose run --rm --service-ports web
+
+.PHONY: down
+down:
+	docker-compose down
+
+.PHONY: console
+console:
+	docker-compose run --rm web bundle exec rails console

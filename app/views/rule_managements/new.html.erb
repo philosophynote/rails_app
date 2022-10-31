@@ -1,0 +1,10 @@
+<%= form_with model: @rule, local: true do |form| %>
+  <%= form.text_field :rule_name %>
+  <%= form.fields_for :read do |read| %>
+  <%= read.collection_check_boxes :service_ids, Service.ids, :service_ids, :service_name do |service| %>
+  <% end %>
+  <%= form.fields_for :write do |write| %>
+  <%= write.collection_check_boxes :service_ids, Service.ids, :service_ids, :service_name do |service| %>
+  <% end %>
+  <%= form.submit %>
+<% end %>

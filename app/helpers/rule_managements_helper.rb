@@ -1,0 +1,2 @@
+module RuleManagementsHelper
+end

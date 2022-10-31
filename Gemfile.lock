@@ -90,6 +90,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kgio (2.11.4)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -150,6 +151,7 @@ GEM
       method_source
       rake (>= 12.2)
       thor (~> 1.0)
+    raindrops (0.20.0)
     rake (13.0.6)
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
@@ -188,6 +190,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    unicorn (5.4.1)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -230,6 +235,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
+  unicorn (= 5.4.1)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

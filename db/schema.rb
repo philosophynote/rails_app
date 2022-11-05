@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_150357) do
+ActiveRecord::Schema.define(version: 2022_11_03_095304) do
 
   create_table "authorities", charset: "utf8mb4", force: :cascade do |t|
-    t.string "authority"
+    t.integer "authority", default: 0, null: false
     t.bigint "rule_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

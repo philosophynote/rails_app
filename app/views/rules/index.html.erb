@@ -1,0 +1,7 @@
+<% @rules.each do |rule| %>
+<p><%= rule.rule_name %></p>
+<% rule.authorities.each do |authority| %>
+<p><%= authority.authority %></p>
+<p><%= authority.services.pluck(:service_name) %></p>
+<% end %>
+<% end %>

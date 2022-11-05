@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "rule_managements#new"
+  root "rules#new"
 
-  get "/rule_managements", to: "rule_managements#new"
+  resources :rules
+  # get "/rule_managements", to: "rule_managements#new"
 end

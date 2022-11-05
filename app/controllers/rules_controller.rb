@@ -1,13 +1,17 @@
-class RuleManagementsController < ApplicationController
+class RulesController < ApplicationController
+  def index
+    @rules = Rule.all
+  end
+
   def new
-    @form = RuleManagementForm.new
+    @form = RuleForm.new
   end
 
   def create
-    @form = RuleManagementForm.new(rule_management_params)
+    @form = RuleForm.new(rule_params)
 
     if @form.save
-      redirect_to rule_managements_path
+      redirect_to rules_path
     else
       render :new
     end
@@ -16,13 +20,12 @@ class RuleManagementsController < ApplicationController
   def edit
     load_rule
 
-    @form = RuleManagementForm.new(rule: @rule, )
+    @form = RuleForm.new(rule: @rule)
   end
 
   def update
     load_rule
-
-    @form = RuleManagementForm.new(rule_management_params, rule: @rule)
+    @form = RuleForm.new(rule_params, rule: @rule)
 
     if @form.save
       redirect_to @rule
@@ -33,7 +36,7 @@ class RuleManagementsController < ApplicationController
 
   private
 
-  def rule_management_params
+  def rule_params
     params.require(:rule).permit(:rule_name, 
       read: {
         service_ids: []

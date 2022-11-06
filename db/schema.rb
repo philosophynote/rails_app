@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_11_03_095304) do
   end
 
   create_table "rules", charset: "utf8mb4", force: :cascade do |t|
-    t.string "rule_name"
+    t.string "rule_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

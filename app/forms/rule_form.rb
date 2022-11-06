@@ -21,7 +21,7 @@ class RuleForm
 
   ActiveRecord::Base.transaction do  
 
-    
+
     rule.authorities.destroy_all
     if read[:services]&.any?
       read_authority = rule.authorities.build(authority: Authority.authorities[:read] )
@@ -51,15 +51,15 @@ class RuleForm
  
  private
 
-  attr_reader :rule
-  
-  def default_attributes
-    {
-      rule_name: rule.rule_name,
-      read: {services: rule.authorities.read.joins(:services)},
-      write: {services: rule.authorities.write.joins(:services)},
-    }
-  end
+    attr_reader :rule
+    
+    def default_attributes
+      {
+        rule_name: rule.rule_name,
+        read: { services: rule.authorities.read.joins(:services) },
+        write: { services: rule.authorities.write.joins(:services) },
+      }
+    end
 end
   
   

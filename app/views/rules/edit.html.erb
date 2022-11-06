@@ -1,10 +1,11 @@
 <%= form_with model: @form, local: true do |form| %>
   <%= form.text_field :rule_name %>
   <%= form.fields_for :read do |read| %>
-    <%= read.collection_check_boxes :service_ids, Service.all, :id, :service_name,  checked: @form.read_services&.pluck(:service_id) %>
+    <%= read.collection_check_boxes :services, Service.all, :id, :service_name,  checked: @form.read[:services].pluck(:service_id) %>
   <% end %>
   <%= form.fields_for :write do |write| %>
-    <%= write.collection_check_boxes :service_ids, Service.all, :id, :service_name,  checked: @form.write_services&.pluck(:service_id) %>
+    <%= write.collection_check_boxes :services, Service.all, :id, :service_name,  checked: @form.write[:services].pluck(:service_id) %>
   <% end %>
   <%= form.submit %>
 <% end %>
+

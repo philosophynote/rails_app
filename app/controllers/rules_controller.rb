@@ -28,7 +28,7 @@ class RulesController < ApplicationController
     @form = RuleForm.new(rule_params, rule: @rule)
 
     if @form.save
-      redirect_to @rule
+      redirect_to rules_path
     else
       render :edit
     end
@@ -39,10 +39,10 @@ class RulesController < ApplicationController
   def rule_params
     params.require(:rule).permit(:rule_name, 
       read: {
-        service_ids: []
+        services: []
         },
       write: {
-        service_ids: []
+        services: []
         }
       )
   end

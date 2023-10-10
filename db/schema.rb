@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_095304) do
+ActiveRecord::Schema.define(version: 2023_01_21_023816) do
 
   create_table "authorities", charset: "utf8mb4", force: :cascade do |t|
     t.integer "authority", default: 0, null: false
@@ -33,10 +33,12 @@ ActiveRecord::Schema.define(version: 2022_11_03_095304) do
     t.string "category", limit: 45
     t.string "tag1", limit: 45
     t.string "tag2", limit: 45
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "rules", charset: "utf8mb4", force: :cascade do |t|
-    t.string "rule_name", null: false
+    t.string "rule_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

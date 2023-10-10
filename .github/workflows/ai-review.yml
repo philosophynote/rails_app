@@ -30,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
-          debug: true
+          debug: false
           review_comment_lgtm: false
           openai_heavy_model: gpt-3.5-turbo-0613
           openai_light_model: gpt-3.5-turbo-0613

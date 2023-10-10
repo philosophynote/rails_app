@@ -9,8 +9,8 @@ on:
     types: [opened]
     branches-ignore:
       - master
-  pull_request_review_comment:
-    types: [created]
+  # pull_request_review_comment:
+  #   types: [created]
 
 concurrency:
   group:
@@ -31,7 +31,8 @@ jobs:
         with:
           debug: true
           review_comment_lgtm: false
-          openai_heavy_model: gpt-4
+          openai_heavy_model: gpt-3.5-turbo-0613
+          openai_light_model: gpt-3.5-turbo-0613
           openai_timeout_ms: 900000 # 15分
           language: ja-JP
           path_filters: |
@@ -55,13 +56,13 @@ jobs:
 
             些細なコードスタイルの問題や、コメント・ドキュメントの欠落についてはコメントしないでください。
             重要な問題を特定し、解決して全体的なコード品質を向上させることを目指してくださいが、細かい問題は意図的に無視してください。
-          summarize: |
-            次の内容でmarkdownフォーマットを使用して、最終的な回答を提供してください。
+          # summarize: |
+          #   次の内容でmarkdownフォーマットを使用して、最終的な回答を提供してください。
 
-              - *ウォークスルー*: 特定のファイルではなく、全体の変更に関する高レベルの要約を80語以内で。
-              - *変更点*: ファイルとその要約のテーブル。スペースを節約するために、同様の変更を持つファイルを1行にまとめることができます。
+          #     - *ウォークスルー*: 特定のファイルではなく、全体の変更に関する高レベルの要約を80語以内で。
+          #     - *変更点*: ファイルとその要約のテーブル。スペースを節約するために、同様の変更を持つファイルを1行にまとめることができます。
 
-            GitHubのプルリクエストにコメントとして追加されるこの要約には、追加のコメントを避けてください。
+          #   GitHubのプルリクエストにコメントとして追加されるこの要約には、追加のコメントを避けてください。
           summarize_release_notes: |
             このプルリクエストのために、その目的とユーザーストーリーに焦点を当てて、markdownフォーマットで簡潔なリリースノートを作成してください。
             変更は次のように分類し箇条書きにすること:
